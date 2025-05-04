@@ -16,5 +16,5 @@ for champ in champ_links:
     name_tag = champ.find('strong')
     if name_tag:
         name = name_tag.get_text(strip=True)
-        link = champ['href']
         print(f"Nome: {name}")
+        link = champ['href']
