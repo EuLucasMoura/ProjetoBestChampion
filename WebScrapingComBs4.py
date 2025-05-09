@@ -1,4 +1,3 @@
-import requests
 from bs4 import BeautifulSoup
 
 url = 'https://www.op.gg/champions'  # Exemplo de URL estática, você pode ajustar para a que tem o HTML acessível
