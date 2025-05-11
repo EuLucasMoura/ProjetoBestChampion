@@ -10,21 +10,26 @@ Este projeto tem como objetivo realizar um **estudo estatístico para identifica
 
 ## 🛠️ Metodologia
 
-Neste momento, o foco está em levantar **bases de dados confiáveis** através de técnicas de **web scraping**, buscando fontes que ofereçam dados estatísticos como:
+O foco atual está na criação de uma base de dados sólida e confiável a partir de **web scraping** de sites especializados, que fornecem dados estatísticos como:
 
+- Nome do campeão (Champion)
 - Taxa de vitória (win rate)
 - Frequência de escolha (pick rate)
-- Frequência de banimento (ban rate)
-- Funções mais desempenhadas (lane/role)
-- Eficiência por elo (ranked tiers)
+
+Para garantir a integridade dos dados:
+
+- Uso estruturado de tags HTML: `<tbody>`, `<tr>`, `<td>` — evitando anúncios e elementos fora da tabela.
+- Validação de consistência: apenas linhas com o número correto de colunas são mantidas.
+- Exportação dos dados em formato `.xlsx` via `pandas`.
 
 ---
 
 ## 📈 Estado Atual do Projeto
 
-- Estudando **web scraping** em sites que listam builds e estatísticas dos campeões.
-- Avaliando quais páginas retornam conteúdo **estático** (HTML direto) e quais usam **JavaScript dinâmico** (necessitando renderização).
-- Testando diferentes abordagens e bibliotecas para scraping eficiente e completo.
+- Extração bem-sucedida de dados tabulares com Selenium.
+- Filtragem automática de linhas incompletas ou inválidas.
+- Exportação funcional para Excel.
+- Código limpo, com scraping estável e replicável.
 
 ---
 
@@ -36,12 +41,12 @@ Neste momento, o foco está em levantar **bases de dados confiáveis** através 
 ### ✅ Bibliotecas:
 | Biblioteca     | Status | Descrição                                                                 |
 |----------------|--------|--------------------------------------------------------------------------|
-| `BeautifulSoup4` | ❌ | Útil para páginas estáticas, mas limitada quando o conteúdo é carregado via JS |
-| `Selenium`       | ✅ | Permite simular navegador e lidar com carregamento dinâmico e infinite scroll |
+| `pandas`         | ✅ | Manipulação e estruturação dos dados extraídos                             |
+| `Selenium`       | ✅ | Navegação automatizada e scraping de conteúdo dinâmico via JavaScript      |
+| `openpyxl`       | ✅ | Suporte à exportação de dados para arquivos `.xlsx`                        |
+| `BeautifulSoup4` | ❌ | Avaliada, mas descartada por não lidar bem com páginas JS dinâmicas         |
 
 ### ✅ Ferramentas:
-- **VSCode** – Desenvolvimento
+- **VSCode** – Ambiente de desenvolvimento
 - **Google Chrome** – Testes e depuração do DOM com DevTools
-
----
-
+- **Excel** – Análise manual e visualização dos dados exportados
