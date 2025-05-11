@@ -1,0 +1,20 @@
+# Ignorar arquivos Python compilados
+__pycache__/
+*.pyc
+
+# Ignorar arquivos temporários
+*.log
+*.tmp
+
+# Ignorar ambientes virtuais
+venv/
+env/
+
+# Ignorar arquivos do VSCode
+.vscode/
+
+# Ignorar arquivos do Jupyter
+.ipynb_checkpoints/
+
+# Ignorar arquivos Excel
+*.xlsx

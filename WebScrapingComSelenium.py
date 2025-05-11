@@ -6,7 +6,7 @@ import time
 
 # Configuração do ChromeDriver
 options = Options()
-#options.add_argument("--headless")  # Executa sem abrir janela
+# options.add_argument("--headless")  # Executa sem abrir janela
 options.add_argument("--no-sandbox")
 
 # Aponta para o chromedriver na raiz do projeto
@@ -27,12 +27,12 @@ while True:
     last_height = new_height
 
 # Coleta os nomes e links dos campeões
-champ_elements = driver.find_elements(By.CSS_SELECTOR, 'a.flex.items-center.gap-2')
+champ_name = driver.find_elements(By.CSS_SELECTOR, 'a.flex.items-center.gap-2')
 
-for champ in champ_elements:
+
+for champ in champ_name:
     try:
         name = champ.find_element(By.TAG_NAME, 'strong').text
-        href = champ.get_attribute('href')
         print(f"Nome: {name}")
     except Exception as e:
         print("Erro ao encontrar o nome ou o link do campeão.", e)
