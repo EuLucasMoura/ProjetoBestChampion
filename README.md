@@ -30,6 +30,7 @@ O foco inicial está na **construção de uma base de dados robusta e confiável
 - ✅ Filtragem automática de entradas incompletas ou inconsistentes.
 - ✅ Exportação funcional para Excel.
 - ✅ Código limpo, replicável e com scraping estável.
+- ✅ Extração por lanes e por região 100% mapeada.
 
 ---
 
