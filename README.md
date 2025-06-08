@@ -4,7 +4,7 @@
 
 Este projeto tem como objetivo realizar um **estudo estatístico para identificar os campeões mais eficientes do jogo *League of Legends* (LoL)**. A proposta é avaliar o desempenho dos campeões ao longo de diferentes versões, funções e regiões, com base em dados objetivos como **taxa de vitória** e **frequência de escolha**.
 
-> ⚠️ *O escopo temporal (patches ou temporadas analisadas) ainda está em definição.*
+> 📅 Atualmente, estão sendo analisados os patches **15.08, 15.09 e 15.10**.
 
 ---
 
@@ -12,25 +12,30 @@ Este projeto tem como objetivo realizar um **estudo estatístico para identifica
 
 O foco inicial está na **construção de uma base de dados robusta e confiável**, por meio de *web scraping* em sites especializados. A coleta é voltada para informações estatísticas relevantes, como:
 
-- Nome do campeão
-- Taxa de vitória (*win rate*)
-- Frequência de escolha (*pick rate*)
+- Nome do campeão  
+- Taxa de vitória (*win rate*)  
+- Frequência de escolha (*pick rate*)  
+- Dados segmentados por **região**, **elo**, **patch**, **tipo de fila** e **função (lane)**  
 
 ### 🧪 Garantia de qualidade dos dados
 
-- Coleta estruturada com base em tags HTML: `<tbody>`, `<tr>`, `<td>`, evitando anúncios e elementos não relacionados à tabela.
-- Validação da consistência: apenas linhas com o número correto de colunas são consideradas.
-- Exportação final em formato `.xlsx`, utilizando a biblioteca `pandas`.
+- Coleta estruturada com base em tags HTML (`<tbody>`, `<tr>`, `<td>`) para evitar ruídos como anúncios ou componentes visuais irrelevantes.
+- Tratamento de exceções para elementos dinâmicos da página, incluindo:
+  - `StaleElementReferenceException`
+  - `ElementClickInterceptedException`
+- Salvamento incremental por região: garante persistência mesmo em caso de falhas durante a execução.
+- Exportação final em formato `.xlsx` com `pandas`.
 
 ---
 
 ## 📈 Estado Atual do Projeto
 
-- ✅ Extração bem-sucedida de dados tabulares usando Selenium.
-- ✅ Filtragem automática de entradas incompletas ou inconsistentes.
-- ✅ Exportação funcional para Excel.
-- ✅ Código limpo, replicável e com scraping estável.
-- ✅ Extração por lanes e por região 100% mapeada.
+- ✅ Extração bem-sucedida de dados tabulares usando Selenium.  
+- ✅ Automação da navegação por patch, elo, tipo de fila e lane.  
+- ✅ Scroll dinâmico implementado para carregar todos os registros da página.  
+- ✅ Tratamento de elementos dinâmicos com tentativas repetidas e esperas inteligentes.  
+- ✅ Salvamento automático dos dados por **região**, criando múltiplos arquivos `.xlsx`.  
+- ✅ Código modular e replicável para diferentes combinações de filtros.  
 
 ---
 
@@ -51,6 +56,6 @@ O foco inicial está na **construção de uma base de dados robusta e confiável
 
 ### ✅ Ferramentas Complementares
 
-- **VSCode** – Ambiente de desenvolvimento e testes
-- **Google Chrome** – Análise do DOM e depuração com DevTools
+- **VSCode** – Ambiente de desenvolvimento e testes  
+- **Google Chrome** – Análise do DOM e depuração com DevTools  
 - **Microsoft Excel** – Visualização e análise manual dos dados coletados
